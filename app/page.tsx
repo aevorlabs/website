@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
+import { supabase } from '@/lib/supabase';
 
 type FormData = {
   name: string;
@@ -11,7 +12,23 @@ type FormData = {
 };
 
 export default function Home() {
+  const [data, setData] = useState<unknown[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const boxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    async function fetchAccounts() {
+      const { data, error } = await supabase.from('User').select('*').limit(5);
+
+      if (error) {
+        setError(error.message);
+      } else {
+        setData(data);
+      }
+    }
+
+    fetchAccounts();
+  }, []);
 
   const {
     register,
@@ -35,7 +52,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex min-h-screen flex-col items-center justify-center gap-6 bg-zinc-50 font-sans dark:bg-black">
       {/* GSAP Test */}
       <div
         ref={boxRef}
@@ -110,6 +127,22 @@ export default function Home() {
           Submit (React Hook Form)
         </button>
       </form>
+
+      <div style={{ padding: '2rem' }}>
+        <h1>Supabase Connection Test</h1>
+        {error && <p style={{ color: 'red' }}>Error: {error}</p>}
+        {data && (
+          <>
+            <p style={{ color: 'green' }}>Connected! Found {data.length} row(s).</p>
+            <pre
+              style={{ background: '#f3f4f6', padding: '1rem', borderRadius: 8, overflow: 'auto' }}
+            >
+              {JSON.stringify(data, null, 2)}
+            </pre>
+          </>
+        )}
+        {!data && !error && <p>Loading...</p>}
+      </div>
     </div>
   );
 }
