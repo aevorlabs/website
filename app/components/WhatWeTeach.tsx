@@ -17,7 +17,6 @@ const cards = [
     title: 'LLMs & Prompt Engineering',
     desc: 'Master prompting techniques, chain-of-thought reasoning, and RAG pipelines. Learn to build, fine-tune, and deploy real LLM-powered workflows.',
     link: 'Learn More →',
-    featured: true,
   },
   {
     icon: '⚡',
@@ -39,7 +38,10 @@ export default function WhatWeTeach() {
   }, []);
 
   return (
-    <section id="what-we-teach" className="w-full bg-white px-6 py-20 sm:px-12 lg:px-[120px] lg:py-[80px]">
+    <section
+      id="what-we-teach"
+      className="w-full bg-white px-6 py-20 sm:px-12 lg:px-[120px] lg:py-[80px]"
+    >
       {/* Header */}
       <div className="mx-auto flex flex-col items-center gap-3 text-center">
         <SectionTag label="CURRICULUM" />
@@ -55,11 +57,7 @@ export default function WhatWeTeach() {
         {cards.map((card) => (
           <div
             key={card.title}
-            className={`flex flex-col gap-5 rounded-xl border border-slate-200 p-9 ${
-              card.featured
-                ? 'bg-gradient-to-br from-gray-50 to-indigo-50'
-                : 'bg-white'
-            }`}
+            className={`flex flex-col gap-5 rounded-xl border border-slate-200 bg-white p-9`}
           >
             <div className="flex h-12 w-12 items-center justify-center rounded-[10px] bg-indigo-50 text-2xl">
               {card.icon === '✦' ? (
@@ -87,11 +85,7 @@ export default function WhatWeTeach() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -60 }}
               transition={{ duration: 0.3 }}
-              className={`flex flex-col gap-5 rounded-xl border border-slate-200 p-8 ${
-                cards[current].featured
-                  ? 'bg-gradient-to-br from-gray-50 to-indigo-50'
-                  : 'bg-white'
-              }`}
+              className={`flex flex-col gap-5 rounded-xl border border-slate-200 bg-white p-8`}
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-[10px] bg-indigo-50 text-2xl">
                 {cards[current].icon === '✦' ? (

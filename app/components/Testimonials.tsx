@@ -3,6 +3,7 @@
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 import SectionTag from './SectionTag';
 
 const testimonials = [
@@ -23,7 +24,6 @@ const testimonials = [
       '"We ran a company-wide AI training for 40 staff. Incredibly well-organised, highly relevant content, and the trainer made complex topics genuinely fun."',
     name: 'Priya Nair',
     role: 'L&D Director · Fintech Co.',
-    featured: true,
   },
 ];
 
@@ -55,11 +55,7 @@ export default function Testimonials() {
         {testimonials.map((t) => (
           <div
             key={t.name}
-            className={`flex flex-col gap-5 rounded-xl border p-8 ${
-              t.featured
-                ? 'border-indigo-300 bg-gradient-to-br from-indigo-50 to-sky-50'
-                : 'border-slate-200 bg-white'
-            }`}
+            className={`flex flex-col gap-5 rounded-xl border border-slate-200 bg-white p-8`}
           >
             <span className="text-base text-indigo-500">{stars}</span>
             <p className="flex-1 text-[15px] leading-[1.7] text-slate-700">{t.quote}</p>
@@ -81,11 +77,7 @@ export default function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -60 }}
               transition={{ duration: 0.3 }}
-              className={`flex flex-col gap-5 rounded-xl border p-8 ${
-                testimonials[current].featured
-                  ? 'border-indigo-300 bg-gradient-to-br from-indigo-50 to-sky-50'
-                  : 'border-slate-200 bg-white'
-              }`}
+              className={`flex flex-col gap-5 rounded-xl border border-slate-200 bg-white p-8`}
             >
               <span className="text-base text-indigo-500">{stars}</span>
               <p className="text-[15px] leading-[1.7] text-slate-700">
@@ -125,6 +117,26 @@ export default function Testimonials() {
           >
             <ChevronRight size={20} />
           </button>
+        </div>
+      </div>
+
+      <div className="mt-12 flex flex-col items-center justify-center">
+        <p className="mb-5 text-sm text-black/50">Companies and employees we have helped</p>
+        <div className="flex items-center justify-center gap-5">
+          <div>
+            <Image src="/testimonials/axs_logo.png" alt="AXS logo" width={72} height={60} />
+          </div>
+          <div>
+            <Image
+              src="/testimonials/jpm_logo_sm.png"
+              alt="JPMorgan logo"
+              width={235}
+              height={30}
+            />
+          </div>
+          <div>
+            <Image src="/testimonials/shopee_logo.png" alt="Shopee logo" width={188} height={60} />
+          </div>
         </div>
       </div>
     </section>

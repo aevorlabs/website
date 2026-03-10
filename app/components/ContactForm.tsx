@@ -25,7 +25,10 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="w-full bg-white px-6 py-20 sm:px-12 lg:px-[120px] lg:py-[80px]">
+    <section
+      id="contact"
+      className="w-full bg-white px-6 py-20 sm:px-12 lg:px-[120px] lg:py-[80px]"
+    >
       {/* Header */}
       <div className="mx-auto flex flex-col items-center gap-3 text-center">
         <SectionTag label="CONTACT" />
@@ -75,7 +78,7 @@ export default function ContactForm() {
             <input
               {...register('company')}
               placeholder="Your company name"
-              className="h-11 rounded-lg border border-gray-300 bg-white px-[14px] text-sm text-gray-900 placeholder:text-gray-400"
+              className="h-11 rounded-lg border border-gray-300 bg-white px-3.5 text-sm text-gray-900 placeholder:text-gray-400"
             />
           </div>
           <div className="flex flex-col gap-2">

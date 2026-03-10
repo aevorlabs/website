@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 
 const navLinks = [
@@ -19,7 +20,7 @@ export default function Navbar() {
       <div className="flex h-18 items-center justify-between px-6 sm:px-12 lg:px-20">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <div className="h-6 w-2 rounded-[2px] bg-[#6366F1]" />
+          <Image src="/aevor-logo-white.png" alt="Aevor Labs Logo" width={36} height={36} />
           <span className="text-[20px] font-bold text-white">Aevor Labs</span>
         </div>
 
@@ -56,7 +57,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="flex flex-col gap-4 border-t border-slate-800 px-6 pb-6 pt-4 md:hidden">
+        <div className="flex flex-col gap-4 border-t border-slate-800 px-6 pt-4 pb-6 md:hidden">
           {navLinks.map((link) => (
             <Link
               key={link.label}
