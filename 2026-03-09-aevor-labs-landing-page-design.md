@@ -71,13 +71,14 @@ lib/
 
 Three cards/columns:
 
-| Offering | Description (placeholder) |
-|----------|--------------------------|
-| **AI Fundamentals** | Understand how AI works, practical applications for your business, and how to integrate AI tools into your workflow. |
-| **LLMs & Prompt Engineering** | Master large language models — from prompt engineering to building AI-powered applications with APIs. |
-| **Vibe Coding** | Build real web applications using AI coding assistants. No prior coding experience required. |
+| Offering                      | Description (placeholder)                                                                                            |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **AI Fundamentals**           | Understand how AI works, practical applications for your business, and how to integrate AI tools into your workflow. |
+| **LLMs & Prompt Engineering** | Master large language models — from prompt engineering to building AI-powered applications with APIs.                |
+| **Vibe Coding**               | Build real web applications using AI coding assistants. No prior coding experience required.                         |
 
 Each card should have:
+
 - An icon (from Lucide)
 - Title
 - Short description
@@ -87,12 +88,12 @@ Each card should have:
 
 Show the different delivery formats. Use a simple grid or step-based layout:
 
-| Format | Details (placeholder) |
-|--------|----------------------|
+| Format                 | Details (placeholder)                                                                       |
+| ---------------------- | ------------------------------------------------------------------------------------------- |
 | **Corporate Training** | Customized courses for your team. We come to your office or host at our Singapore location. |
-| **1-on-1 Coaching** | Personalized sessions tailored to your learning goals and pace. |
-| **On-Site** | Training conducted at your location or ours in Singapore. |
-| **Remote (Zoom)** | Live interactive sessions via Zoom. Available for all course types. |
+| **1-on-1 Coaching**    | Personalized sessions tailored to your learning goals and pace.                             |
+| **On-Site**            | Training conducted at your location or ours in Singapore.                                   |
+| **Remote (Zoom)**      | Live interactive sessions via Zoom. Available for all course types.                         |
 
 ### 5. Testimonials
 
@@ -123,6 +124,7 @@ Show the different delivery formats. Use a simple grid or step-based layout:
 ### 8. Contact / Inquiry Form
 
 Fields:
+
 - **Name** (required)
 - **Email** (required)
 - **Company** (optional)
@@ -131,6 +133,7 @@ Fields:
 - **Submit button**: "Send Inquiry"
 
 On submit:
+
 - Validate with React Hook Form
 - Call a Next.js Server Action
 - Server Action stores the submission in Supabase and sends an email notification
@@ -148,6 +151,7 @@ On submit:
 ## SEO & Metadata
 
 Set in `layout.js`:
+
 - **Title**: "Aevor Labs — AI, LLM & Vibe Coding Training in Singapore"
 - **Description**: "Hands-on AI, LLM, and Vibe Coding training for teams and individuals. Corporate courses, 1-on-1 coaching, on-site and remote. Based in Singapore."
 - **Open Graph tags** for social sharing (title, description, image)
@@ -157,15 +161,15 @@ Set in `layout.js`:
 
 ### Table: `inquiries`
 
-| Column | Type | Notes |
-|--------|------|-------|
-| id | uuid | Primary key, auto-generated |
-| name | text | Required |
-| email | text | Required |
-| company | text | Nullable |
-| interest | text | "corporate", "coaching", "both", "other" |
-| message | text | Required |
-| created_at | timestamptz | Auto-generated |
+| Column     | Type        | Notes                                    |
+| ---------- | ----------- | ---------------------------------------- |
+| id         | uuid        | Primary key, auto-generated              |
+| name       | text        | Required                                 |
+| email      | text        | Required                                 |
+| company    | text        | Nullable                                 |
+| interest   | text        | "corporate", "coaching", "both", "other" |
+| message    | text        | Required                                 |
+| created_at | timestamptz | Auto-generated                           |
 
 ### Email Notification
 

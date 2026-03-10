@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import { DM_Sans, DM_Mono } from 'next/font/google';
 import './globals.css';
 
-const geistSans = DM_Sans({
+const dmSans = DM_Sans({
   variable: '--font-dm-sans',
   subsets: ['latin'],
 });
 
-const geistMono = DM_Mono({
+const dmMono = DM_Mono({
   variable: '--font-dm-mono',
   weight: ['300', '400', '500'],
   subsets: ['latin'],
@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body className={`${dmSans.variable} ${dmMono.variable} antialiased`}>{children}</body>
     </html>
   );
 }
