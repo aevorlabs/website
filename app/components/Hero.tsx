@@ -3,18 +3,9 @@ import Link from 'next/link';
 export default function Hero() {
   return (
     <section className="flex h-170 w-full items-center gap-20 bg-slate-900 px-20 py-0">
-      {/* Hero Left */}
-      <div className="flex flex-1 flex-col justify-center gap-8">
-        {/* Badge */}
-        <div className="flex w-fit items-center gap-2 rounded-full bg-slate-800 px-3.5 py-1.5">
-          <span className="block h-1.5 w-1.5 rounded-full bg-indigo-500" />
-          <span className="text-[13px] font-medium text-indigo-300">
-            AI &amp; LLM Training — Singapore
-          </span>
-        </div>
-
+      <div className="flex flex-1 flex-col items-center justify-center gap-8">
         {/* Headline */}
-        <h1 className="max-w-155 text-[60px] leading-[1.1] font-extrabold text-white">
+        <h1 className="max-w-155 text-center text-[60px] leading-[1.1] font-extrabold text-white">
           Learn AI, LLMs, and Vibe Coding.
         </h1>
 

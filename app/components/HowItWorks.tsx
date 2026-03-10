@@ -20,13 +20,15 @@ const steps = [
     num: '04',
     title: 'Remote (Zoom)',
     desc: 'Live interactive sessions online — ideal for global teams and international participants joining from anywhere.',
-    featured: true,
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="w-full bg-slate-900 px-6 py-20 sm:px-12 lg:px-[120px] lg:py-[80px]">
+    <section
+      id="how-it-works"
+      className="w-full bg-slate-900 px-6 py-20 sm:px-12 lg:px-[120px] lg:py-[80px]"
+    >
       {/* Header */}
       <div className="mx-auto flex flex-col items-center gap-3 text-center">
         <SectionTag label="DELIVERY" variant="dark" />
@@ -44,18 +46,10 @@ export default function HowItWorks() {
         {steps.map((step) => (
           <div
             key={step.num}
-            className={`flex flex-col gap-4 rounded-[10px] border p-8 ${
-              step.featured
-                ? 'border-indigo-500 bg-[#1a1a2e]'
-                : 'border-slate-800'
-            }`}
+            className={`flex flex-col gap-4 rounded-[10px] border border-slate-800 p-8`}
           >
             <div
-              className={`flex h-10 w-10 items-center justify-center rounded-lg text-base font-bold ${
-                step.featured
-                  ? 'bg-indigo-500 text-white'
-                  : 'bg-indigo-950 text-indigo-300'
-              }`}
+              className={`flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-950 text-base font-bold text-indigo-300`}
             >
               {step.num}
             </div>
