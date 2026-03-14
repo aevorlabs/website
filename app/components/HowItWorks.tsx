@@ -1,4 +1,5 @@
 import SectionTag from './SectionTag';
+import { Card, CardContent } from '@/components/ui/card';
 
 const steps = [
   {
@@ -44,18 +45,15 @@ export default function HowItWorks() {
       {/* Responsive Grid */}
       <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {steps.map((step) => (
-          <div
-            key={step.num}
-            className={`flex flex-col gap-4 rounded-[10px] border border-slate-800 p-8`}
-          >
-            <div
-              className={`flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-950 text-base font-bold text-indigo-300`}
-            >
-              {step.num}
-            </div>
-            <h3 className="text-lg font-bold text-white">{step.title}</h3>
-            <p className="text-sm leading-relaxed text-slate-400">{step.desc}</p>
-          </div>
+          <Card key={step.num} className="border-slate-800 bg-transparent">
+            <CardContent className="flex flex-col gap-4 p-8">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-950 text-base font-bold text-indigo-300">
+                {step.num}
+              </div>
+              <h3 className="text-lg font-bold text-white">{step.title}</h3>
+              <p className="text-sm leading-relaxed text-slate-400">{step.desc}</p>
+            </CardContent>
+          </Card>
         ))}
       </div>
     </section>

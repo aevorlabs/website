@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const navLinks = [
   { label: 'What We Teach', href: '#what-we-teach' },
@@ -16,8 +17,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="relative w-full bg-[#0F172A]">
-      <div className="flex h-18 items-center justify-between px-6 sm:px-12 lg:px-20">
+    <nav className="fixed top-4 right-0 left-0 z-50 px-4 sm:px-6 lg:px-10">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between rounded-2xl border border-slate-700/60 bg-slate-800/80 px-5 shadow-lg shadow-black/20 backdrop-blur-lg sm:px-8">
         {/* Logo */}
         <div className="flex items-center gap-2">
           <Image src="/aevor-logo-white.png" alt="Aevor Labs Logo" width={36} height={36} />
@@ -38,12 +39,12 @@ export default function Navbar() {
         </div>
 
         {/* Desktop CTA */}
-        <Link
-          href="#contact"
-          className="hidden rounded-[6px] bg-[#6366F1] px-6 py-2.5 text-[14px] font-semibold text-white transition-colors hover:bg-[#4F46E5] md:flex"
+        <Button
+          asChild
+          className="hidden rounded-xl bg-[#6366F1] px-[14px] text-[14px] hover:bg-[#4F46E5] md:flex"
         >
-          Get in Touch
-        </Link>
+          <Link href="#contact">Get in Touch</Link>
+        </Button>
 
         {/* Mobile Menu Button */}
         <button
@@ -57,7 +58,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="flex flex-col gap-4 border-t border-slate-800 px-6 pt-4 pb-6 md:hidden">
+        <div className="mx-auto mt-2 flex max-w-7xl flex-col gap-4 rounded-2xl border border-slate-700/60 bg-slate-800/80 px-6 pt-4 pb-6 shadow-lg shadow-black/20 backdrop-blur-lg md:hidden">
           {navLinks.map((link) => (
             <Link
               key={link.label}
@@ -68,13 +69,14 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="#contact"
-            onClick={() => setOpen(false)}
-            className="mt-2 w-fit rounded-[6px] bg-[#6366F1] px-6 py-2.5 text-[14px] font-semibold text-white transition-colors hover:bg-[#4F46E5]"
+          <Button
+            asChild
+            className="w-fit rounded-[6px] bg-[#6366F1] px-6 py-2.5 text-[14px] font-semibold hover:bg-[#4F46E5]"
           >
-            Get in Touch
-          </Link>
+            <Link href="#contact" onClick={() => setOpen(false)}>
+              Get in Touch
+            </Link>
+          </Button>
         </div>
       )}
     </nav>

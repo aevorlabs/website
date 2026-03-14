@@ -3,27 +3,34 @@
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Image from 'next/image';
 import SectionTag from './SectionTag';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 const testimonials = [
   {
     quote:
-      '"The LLM & Prompt Engineering workshop completely changed how our product team works. We shipped an AI feature in the first week after training."',
+      '"A much needed breath of fresh air in the AI courses space! Have been looking for a practical course such as this for my department. We built something for our processes and it actually improved workflow efficiency. 10/10 would recommend!"',
     name: 'Sarah Lim',
     role: 'Head of Product · TechCorp SG',
+    attended: 'Vibe Coding Workshop',
+    courseType: 'On-Site Coaching',
   },
   {
     quote:
-      '"I had zero coding experience. After the Vibe Coding course I built and launched a side project in two months. Aevor Labs made it feel possible."',
+      '"I have zero coding experience. After the course, its still at zero which is perfect because I did not want to learn coding. If you are here to learn coding, you are at the wrong place because this course doesn\'t teach coding. It teaches people who wants to use a no-code solution to build apps. Never have I thought I would be able to "code" an app in 2026, but here we are. Thank you Aevor Edge!"',
     name: 'Marcus Tan',
     role: 'Marketing Manager · Freelance',
+    attended: 'Vibe Coding Workshop',
+    courseType: ' 1-on-1 Coaching',
   },
   {
     quote:
-      '"We ran a company-wide AI training for 40 staff. Incredibly well-organised, highly relevant content, and the trainer made complex topics genuinely fun."',
+      '"We ran a company-wide training, starting with just 1 department. Content is incredibly well-thought out, highly relevant, and more importantly,  the apps built helps eased our pain points. I particularly enjoy how the trainer uses familiar analogies to make complex topics easy to comprehend."',
     name: 'Priya Nair',
     role: 'L&D Director · Fintech Co.',
+    attended: 'Vibe Coding Workshop',
+    courseType: 'Corporate Training',
   },
 ];
 
@@ -38,7 +45,7 @@ export default function Testimonials() {
     setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
   }, []);
 
-  const stars = '★★★★★';
+  const stars = '★ ★ ★ ★ ★';
 
   return (
     <section className="w-full bg-[#F8FAFF] px-6 py-20 sm:px-12 lg:px-[120px] lg:py-[80px]">
@@ -53,17 +60,22 @@ export default function Testimonials() {
       {/* Desktop: all cards */}
       <div className="mt-14 hidden gap-7 md:grid md:grid-cols-3">
         {testimonials.map((t) => (
-          <div
-            key={t.name}
-            className={`flex flex-col gap-5 rounded-xl border border-slate-200 bg-white p-8`}
-          >
-            <span className="text-base text-indigo-500">{stars}</span>
-            <p className="flex-1 text-[15px] leading-[1.7] text-slate-700">{t.quote}</p>
-            <div>
-              <p className="text-sm font-bold text-slate-900">{t.name}</p>
-              <p className="text-[13px] text-slate-500">{t.role}</p>
-            </div>
-          </div>
+          <Card key={t.name} className="border-slate-200 bg-white">
+            <CardContent className="flex h-full flex-col justify-between gap-5 p-8">
+              <span className="text-center text-[32px] text-yellow-500">{stars}</span>
+              <p className="flex-1 text-[15px] leading-[1.7] text-slate-700">{t.quote}</p>
+              <div>
+                <p className="text-sm font-bold text-slate-900">{t.name}</p>
+                <p className="text-[13px] text-slate-500">{t.role}</p>
+                <div className="mt-4 text-right">
+                  <p className="text-sm font-bold text-slate-900">Attended</p>
+                  <p className="text-[14px] text-slate-500">
+                    {t.attended}, {t.courseType}
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         ))}
       </div>
 
@@ -77,29 +89,34 @@ export default function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -60 }}
               transition={{ duration: 0.3 }}
-              className={`flex flex-col gap-5 rounded-xl border border-slate-200 bg-white p-8`}
             >
-              <span className="text-base text-indigo-500">{stars}</span>
-              <p className="text-[15px] leading-[1.7] text-slate-700">
-                {testimonials[current].quote}
-              </p>
-              <div>
-                <p className="text-sm font-bold text-slate-900">{testimonials[current].name}</p>
-                <p className="text-[13px] text-slate-500">{testimonials[current].role}</p>
-              </div>
+              <Card className="border-slate-200 bg-white">
+                <CardContent className="flex flex-col gap-5 p-8">
+                  <span className="text-base text-indigo-500">{stars}</span>
+                  <p className="text-[15px] leading-[1.7] text-slate-700">
+                    {testimonials[current].quote}
+                  </p>
+                  <div>
+                    <p className="text-sm font-bold text-slate-900">{testimonials[current].name}</p>
+                    <p className="text-[13px] text-slate-500">{testimonials[current].role}</p>
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           </AnimatePresence>
         </div>
 
         {/* Controls */}
         <div className="mt-6 flex items-center justify-center gap-4">
-          <button
+          <Button
             onClick={prev}
+            variant="outline"
+            size="icon"
             aria-label="Previous testimonial"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-100"
+            className="h-10 w-10 rounded-full border-slate-200 text-slate-600"
           >
             <ChevronLeft size={20} />
-          </button>
+          </Button>
           <div className="flex gap-2">
             {testimonials.map((_, i) => (
               <span
@@ -110,33 +127,15 @@ export default function Testimonials() {
               />
             ))}
           </div>
-          <button
+          <Button
             onClick={next}
+            variant="outline"
+            size="icon"
             aria-label="Next testimonial"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-100"
+            className="h-10 w-10 rounded-full border-slate-200 text-slate-600"
           >
             <ChevronRight size={20} />
-          </button>
-        </div>
-      </div>
-
-      <div className="mt-12 flex flex-col items-center justify-center">
-        <p className="mb-5 text-sm text-black/50">Companies and employees we have helped</p>
-        <div className="flex items-center justify-center gap-5">
-          <div>
-            <Image src="/testimonials/axs_logo.png" alt="AXS logo" width={72} height={60} />
-          </div>
-          <div>
-            <Image
-              src="/testimonials/jpm_logo_sm.png"
-              alt="JPMorgan logo"
-              width={235}
-              height={30}
-            />
-          </div>
-          <div>
-            <Image src="/testimonials/shopee_logo.png" alt="Shopee logo" width={188} height={60} />
-          </div>
+          </Button>
         </div>
       </div>
     </section>
