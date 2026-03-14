@@ -23,13 +23,13 @@ export default function Footer() {
         <div className="flex max-w-[320px] flex-col gap-4">
           <div className="flex items-center gap-2">
             <div className="h-6 w-2 rounded-[2px] bg-indigo-500" />
-            <span className="text-xl font-bold text-white">Aevor Labs</span>
+            <span className="text-xl font-bold text-white">Aevor edge</span>
           </div>
           <p className="text-sm leading-relaxed text-slate-500">
             AI, LLM &amp; Vibe Coding training for teams and individuals. Based in Singapore.
           </p>
-          <a href="mailto:hello@aevorlabs.com" className="text-sm font-medium text-indigo-500">
-            hello@aevorlabs.com
+          <a href="mailto:hello@aevoredge.com" className="text-sm font-medium text-indigo-500">
+            hello@aevoredge.com
           </a>
           <span className="text-sm text-slate-500">📍 Singapore</span>
         </div>
@@ -82,9 +82,7 @@ export default function Footer() {
 
       {/* Bottom */}
       <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-        <span className="text-[13px] text-slate-600">
-          © 2026 Aevor Labs. All rights reserved.
-        </span>
+        <span className="text-[13px] text-slate-600">© 2026 Aevor edge. All rights reserved.</span>
         <div className="flex gap-6">
           <a href="#" className="text-[13px] text-slate-600 transition-colors hover:text-slate-400">
             Privacy Policy

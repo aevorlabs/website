@@ -60,7 +60,7 @@ export async function submitContact(payload: ContactPayload) {
     contact_method: payload.contact_method || null,
     mobile_number: payload.mobile_number || null,
     message: payload.message || null,
-    request_company: 'Aevor Labs',
+    request_company: 'Aevor edge',
   });
 
   if (error) {

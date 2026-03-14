@@ -1,8 +1,8 @@
-# Aevor Labs — Landing Page Design Plan
+# Aevor edge — Landing Page Design Plan
 
 ## Project Overview
 
-A single-page landing website for Aevor Labs, an AI/LLM/Vibe Coding training company based in Singapore. The site serves as a lead generation tool where visitors learn about offerings and submit inquiry forms.
+A single-page landing website for Aevor edge, an AI/LLM/Vibe Coding training company based in Singapore. The site serves as a lead generation tool where visitors learn about offerings and submit inquiry forms.
 
 ## Tech Stack
 
@@ -31,7 +31,7 @@ components/
   Offerings.js       # What We Teach section
   HowItWorks.js      # How It Works section
   Testimonials.js    # Testimonials / companies helped
-  AboutUs.js         # About Aevor Labs
+  AboutUs.js         # About Aevor edge
   FAQ.js             # Frequently asked questions
   ContactForm.js     # Inquiry form
   Footer.js          # Footer with links and copyright
@@ -54,7 +54,7 @@ lib/
 
 ### 1. Navbar
 
-- Aevor Labs logo (left)
+- Aevor edge logo (left)
 - Anchor links: What We Teach, How It Works, About, FAQ
 - CTA button (right): "Get in Touch" — scrolls to contact form
 - Sticky on scroll
@@ -101,11 +101,11 @@ Show the different delivery formats. Use a simple grid or step-based layout:
 - Optionally show company logos in a row below
 - Use placeholder testimonials for now (3-4 entries)
 - Example placeholder:
-  - "Aevor Labs transformed how our team thinks about AI. The training was practical and immediately applicable." — Jane Doe, CTO, TechCorp
+  - "Aevor edge transformed how our team thinks about AI. The training was practical and immediately applicable." — Jane Doe, CTO, TechCorp
 
 ### 6. About Us
 
-- Brief paragraph about Aevor Labs: who you are, mission, why Singapore
+- Brief paragraph about Aevor edge: who you are, mission, why Singapore
 - Placeholder content
 - Optional: team photo or illustration placeholder
 - Keep it short — 2-3 sentences max
@@ -141,18 +141,18 @@ On submit:
 
 ### 9. Footer
 
-- Aevor Labs logo or name
+- Aevor edge logo or name
 - Links: same anchor links as navbar
 - Contact email
 - Location: Singapore
-- Copyright: "2026 Aevor Labs. All rights reserved."
+- Copyright: "2026 Aevor edge. All rights reserved."
 - Optional: social media links (LinkedIn, etc.)
 
 ## SEO & Metadata
 
 Set in `layout.js`:
 
-- **Title**: "Aevor Labs — AI, LLM & Vibe Coding Training in Singapore"
+- **Title**: "Aevor edge — AI, LLM & Vibe Coding Training in Singapore"
 - **Description**: "Hands-on AI, LLM, and Vibe Coding training for teams and individuals. Corporate courses, 1-on-1 coaching, on-site and remote. Based in Singapore."
 - **Open Graph tags** for social sharing (title, description, image)
 - **Favicon**
@@ -173,7 +173,7 @@ Set in `layout.js`:
 
 ### Email Notification
 
-Use Supabase Edge Function or a webhook to send an email to the Aevor Labs inbox when a new row is inserted. Alternatively, use Resend or a similar email service directly in the Server Action.
+Use Supabase Edge Function or a webhook to send an email to the Aevor edge inbox when a new row is inserted. Alternatively, use Resend or a similar email service directly in the Server Action.
 
 ## Environment Variables
 

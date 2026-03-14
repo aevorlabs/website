@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { DM_Sans, DM_Mono, Inter } from 'next/font/google';
 import './globals.css';
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 const dmSans = DM_Sans({
   variable: '--font-dm-sans',
@@ -17,7 +17,7 @@ const dmMono = DM_Mono({
 });
 
 const siteUrl = 'https://aevor.com';
-const title = 'Aevor Labs — AI, LLM & Vibe Coding Training in Singapore';
+const title = 'Aevor edge — AI, LLM & Vibe Coding Training in Singapore';
 const description =
   'Hands-on AI, LLM, and Vibe Coding training for teams and individuals. Corporate courses, 1-on-1 coaching, on-site and remote. Based in Singapore.';
 
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: siteUrl,
-    siteName: 'Aevor Labs',
+    siteName: 'Aevor edge',
     type: 'website',
     locale: 'en_SG',
   },
@@ -49,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", inter.variable)}>
+    <html lang="en" className={cn('font-sans', inter.variable)}>
       <body className={`${dmSans.variable} ${dmMono.variable} antialiased`}>{children}</body>
     </html>
   );

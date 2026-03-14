@@ -21,8 +21,8 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between rounded-2xl border border-slate-700/60 bg-slate-800/80 px-5 shadow-lg shadow-black/20 backdrop-blur-lg sm:px-8">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <Image src="/aevor-logo-white.png" alt="Aevor Labs Logo" width={36} height={36} />
-          <span className="text-[20px] font-bold text-white">Aevor Labs</span>
+          <Image src="/aevor-logo-white.png" alt="Aevor edge Logo" width={36} height={36} />
+          <span className="text-[20px] font-bold text-white">Aevor edge</span>
         </div>
 
         {/* Desktop Nav Links */}
