@@ -12,11 +12,11 @@ export default function AboutUs() {
       <div className="flex flex-1 flex-col gap-6">
         <SectionTag label="ABOUT" />
         <h2 className="text-3xl leading-tight font-extrabold text-slate-900 sm:text-4xl">
-          About Aevor edge
+          About Aevor Edge
         </h2>
         <div className="flex flex-col gap-4 text-base leading-[1.75] text-slate-600">
           <p>
-            Aevor edge is a Singapore-based AI training company on a mission to make cutting-edge
+            Aevor Edge is a Singapore-based AI training company on a mission to make cutting-edge
             technology skills accessible to everyone. We believe you don&apos;t need a computer
             science degree to harness the power of AI — you just need the right guide.
           </p>

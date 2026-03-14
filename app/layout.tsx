@@ -17,7 +17,7 @@ const dmMono = DM_Mono({
 });
 
 const siteUrl = 'https://aevor.com';
-const title = 'Aevor edge — AI, LLM & Vibe Coding Training in Singapore';
+const title = 'Aevor Edge — AI, LLM & Vibe Coding Training in Singapore';
 const description =
   'Hands-on AI, LLM, and Vibe Coding training for teams and individuals. Corporate courses, 1-on-1 coaching, on-site and remote. Based in Singapore.';
 
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: siteUrl,
-    siteName: 'Aevor edge',
+    siteName: 'Aevor Edge',
     type: 'website',
     locale: 'en_SG',
   },

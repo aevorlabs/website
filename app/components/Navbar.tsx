@@ -22,7 +22,7 @@ export default function Navbar() {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <Image src="/aevor-logo-white.png" alt="Aevor edge Logo" width={36} height={36} />
-          <span className="text-[20px] font-bold text-white">Aevor edge</span>
+          <span className="text-[20px] font-bold text-white">Aevor Edge</span>
         </div>
 
         {/* Desktop Nav Links */}
