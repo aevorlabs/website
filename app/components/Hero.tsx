@@ -1,35 +1,42 @@
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 export default function Hero() {
   return (
-    <section className="flex h-170 w-full items-center gap-20 bg-slate-900 px-20 py-0">
-      <div className="flex flex-1 flex-col items-center justify-center gap-8">
+    <section className="flex w-full items-center bg-slate-900 px-6 py-20 sm:px-12 sm:py-24 lg:h-170 lg:px-20 lg:py-0">
+      <div className="flex flex-1 flex-col items-center justify-center gap-6 sm:gap-8">
         {/* Headline */}
-        <h1 className="max-w-155 text-center text-[60px] leading-[1.1] font-extrabold text-white">
+        <h1 className="max-w-155 text-center text-[36px] leading-[1.15] font-extrabold text-white sm:text-[48px] lg:text-[60px] lg:leading-[1.1]">
           Learn AI, LLMs, and Vibe Coding.
         </h1>
 
         {/* Subheadline */}
-        <p className="max-w-145 text-[20px] leading-[1.55] text-slate-400">
+        <p className="max-w-145 text-center text-[16px] leading-[1.55] text-slate-400 sm:text-[18px] lg:text-[20px]">
           Hands-on training for teams and individuals.
           <br />
           Based in Singapore, available worldwide.
         </p>
 
         {/* CTAs */}
-        <div className="flex items-center gap-4">
-          <Link
-            href="#contact"
-            className="flex items-center justify-center rounded-lg bg-indigo-500 px-8 py-3.5 text-[16px] font-semibold text-white transition-colors hover:bg-indigo-600"
+        <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
+          <Button
+            asChild
+            variant="brand"
+            radius="lg"
+            size="lg"
+            className="w-fit shrink-0 bg-[#6366F1] px-10 py-[14px] text-[16px] font-semibold text-white hover:bg-[#4F46E5]"
           >
-            Get in Touch
-          </Link>
-          <Link
-            href="#offerings"
-            className="flex items-center justify-center rounded-lg border-[1.5px] border-slate-700 px-8 py-3.5 text-[16px] font-medium text-slate-200 transition-colors hover:border-slate-500"
+            <Link href="#contact">Get in Touch</Link>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            radius="lg"
+            size="lg"
+            className="w-fit shrink-0 px-10 py-[14px] text-[16px] font-semibold text-white"
           >
-            See Our Offerings
-          </Link>
+            <Link href="#offerings">See Our Offerings</Link>
+          </Button>
         </div>
       </div>
     </section>

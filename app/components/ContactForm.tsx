@@ -4,6 +4,18 @@ import { useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { submitContact } from '@/app/actions/submitContact';
 import SectionTag from './SectionTag';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 type ContactData = {
   name: string;
@@ -42,6 +54,7 @@ export default function ContactForm() {
     handleSubmit,
     control,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<ContactData>({
     defaultValues: {
@@ -104,28 +117,24 @@ export default function ContactForm() {
         {/* Row 1: Name + Email */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-gray-700">Name *</label>
-            <input
+            <Label className="text-sm font-semibold text-[#374151]">Name *</Label>
+            <Input
               {...register('name', { required: true })}
               placeholder="Your full name"
-              className={`h-11 rounded-lg border bg-white px-[14px] text-sm text-gray-900 placeholder:text-gray-400 ${
-                errors.name ? 'border-red-400' : 'border-gray-300'
-              }`}
+              className={`h-11 rounded-lg border bg-white px-[14px] text-sm text-gray-900 placeholder:text-gray-400 ${errors.name ? 'border-red-400' : 'border-[#D1D5DB]'}`}
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-gray-700">
+            <Label className="text-sm font-semibold text-[#374151]">
               Email {isEmailRequired ? '*' : '(optional)'}
-            </label>
-            <input
+            </Label>
+            <Input
               {...register('email', {
                 required: isEmailRequired,
                 pattern: /^\S+@\S+$/,
               })}
               placeholder="you@company.com"
-              className={`h-11 rounded-lg border bg-white px-[14px] text-sm text-gray-900 placeholder:text-gray-400 ${
-                errors.email ? 'border-red-400' : 'border-gray-300'
-              }`}
+              className={`h-11 rounded-lg border bg-white px-[14px] text-sm text-gray-900 placeholder:text-gray-400 ${errors.email ? 'border-red-400' : 'border-[#D1D5DB]'}`}
             />
           </div>
         </div>
@@ -133,55 +142,63 @@ export default function ContactForm() {
         {/* Row 2: Company + Interest */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-gray-700">Company (optional)</label>
-            <input
+            <Label className="text-sm font-semibold text-[#374151]">Company (optional)</Label>
+            <Input
               {...register('company')}
               placeholder="Your company name"
-              className="h-11 rounded-lg border border-gray-300 bg-white px-3.5 text-sm text-gray-900 placeholder:text-gray-400"
+              className="h-11 rounded-lg border border-[#D1D5DB] bg-white px-[14px] text-sm text-gray-900 placeholder:text-gray-400"
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-gray-700">I&apos;m Interested In *</label>
-            <select
-              {...register('interest', { required: true })}
-              className={`h-11 rounded-lg border bg-white px-[14px] text-sm text-gray-700 ${
-                errors.interest ? 'border-red-400' : 'border-gray-300'
-              }`}
+            <Label className="text-sm font-semibold text-[#374151]">I&apos;m Interested In *</Label>
+            <Select
+              defaultValue="Corporate Training"
+              onValueChange={(val) => setValue('interest', val)}
             >
-              <option value="Corporate Training">Corporate Training</option>
-              <option value="1-on-1 Coaching">1-on-1 Coaching</option>
-              <option value="On-Site">On-Site</option>
-              <option value="Remote">Remote (Zoom)</option>
-            </select>
+              <SelectTrigger className={errors.interest ? 'border-red-400' : ''}>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Corporate Training">Corporate Training</SelectItem>
+                <SelectItem value="1-on-1 Coaching">1-on-1 Coaching</SelectItem>
+                <SelectItem value="On-Site">On-Site</SelectItem>
+                <SelectItem value="Remote">Remote (Zoom)</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
         </div>
 
         {/* Row 3: Preferred Contact + Mobile */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-gray-700">
+            <Label className="text-sm font-semibold text-[#374151]">
               Preferred Contact Method *
-            </label>
-            <select
-              {...register('contactMethod', { required: true })}
-              className={`h-11 rounded-lg border bg-white px-[14px] text-sm text-gray-700 ${
-                errors.contactMethod ? 'border-red-400' : 'border-gray-300'
-              }`}
+            </Label>
+            <Select
+              defaultValue="Email"
+              onValueChange={(val) =>
+                setValue('contactMethod', val as ContactData['contactMethod'])
+              }
             >
-              <option value="Email">Email</option>
-              <option value="Mobile">Mobile</option>
-              <option value="WhatsApp">WhatsApp</option>
-              <option value="Telegram">Telegram</option>
-            </select>
+              <SelectTrigger className={errors.contactMethod ? 'border-red-400' : ''}>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Email">Email</SelectItem>
+                <SelectItem value="Mobile">Mobile</SelectItem>
+                <SelectItem value="WhatsApp">WhatsApp</SelectItem>
+                <SelectItem value="Telegram">Telegram</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-gray-700">
+            <Label className="text-sm font-semibold text-[#374151]">
               Mobile Number {isMobileRequired ? '*' : '(optional)'}
-            </label>
+            </Label>
             <div className="flex gap-2">
               <select
                 {...register('countryCode')}
-                className="h-11 w-[100px] shrink-0 rounded-lg border border-gray-300 bg-white px-2 text-sm text-gray-700"
+                className="h-11 w-[100px] shrink-0 rounded-lg border border-[#D1D5DB] bg-white px-2 text-sm text-gray-700"
               >
                 {countryCodes.map((cc) => (
                   <option key={cc.value} value={cc.value}>
@@ -189,15 +206,13 @@ export default function ContactForm() {
                   </option>
                 ))}
               </select>
-              <input
+              <Input
                 {...register('mobile', {
                   required: isMobileRequired,
                   pattern: /^[0-9]{4,15}$/,
                 })}
                 placeholder="8123 4567"
-                className={`h-11 w-full rounded-lg border bg-white px-[14px] text-sm text-gray-900 placeholder:text-gray-400 ${
-                  errors.mobile ? 'border-red-400' : 'border-gray-300'
-                }`}
+                className={`h-11 rounded-lg border bg-white px-[14px] text-sm text-gray-900 placeholder:text-gray-400 ${errors.mobile ? 'border-red-400' : 'border-[#D1D5DB]'}`}
               />
             </div>
           </div>
@@ -205,38 +220,40 @@ export default function ContactForm() {
 
         {/* Message */}
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-semibold text-gray-700">Message</label>
-          <textarea
+          <Label className="text-sm font-semibold text-[#374151]">Message</Label>
+          <Textarea
             {...register('message')}
             rows={4}
             placeholder="Tell us about your goals, team size, and any specific topics you'd like covered..."
-            className="rounded-lg border border-gray-300 bg-white p-[14px] text-sm leading-relaxed text-gray-900 placeholder:text-gray-400"
+            className="rounded-lg border border-[#D1D5DB] bg-white p-[14px] text-sm leading-[1.55] text-gray-900 placeholder:text-gray-400"
           />
         </div>
 
         {/* Submit + Status */}
         <div className="flex items-center gap-4">
-          <button
+          <Button
             type="submit"
             disabled={submitting}
-            className="w-fit shrink-0 rounded-lg bg-indigo-500 px-10 py-[14px] text-base font-semibold text-white transition-colors hover:bg-indigo-600 disabled:opacity-50"
+            className="w-fit shrink-0 rounded-[8px] bg-[#6366F1] px-10 py-[14px] text-[16px] font-semibold text-white hover:bg-[#4F46E5] disabled:opacity-50"
           >
             {submitting ? 'Sending...' : 'Send Inquiry →'}
-          </button>
+          </Button>
 
           {submitted && (
-            <div className="flex items-center gap-2 rounded-lg border border-green-300 bg-green-50 px-4 py-3">
-              <span className="text-base font-bold text-green-600">✓</span>
-              <span className="text-sm font-medium text-green-800">
+            <Alert className="rounded-lg border border-[#86EFAC] bg-[#F0FDF4]">
+              <AlertDescription className="flex items-center gap-3 text-sm font-medium text-[#166534]">
+                <span className="font-bold text-[#16A34A]">✓</span>
                 Thanks! We&apos;ll be in touch within one business day.
-              </span>
-            </div>
+              </AlertDescription>
+            </Alert>
           )}
 
           {submitError && (
-            <div className="flex items-center gap-2 rounded-lg border border-red-300 bg-red-50 px-4 py-3">
-              <span className="text-sm font-medium text-red-800">{submitError}</span>
-            </div>
+            <Alert className="rounded-lg border border-red-300 bg-red-50">
+              <AlertDescription className="text-sm font-medium text-red-800">
+                {submitError}
+              </AlertDescription>
+            </Alert>
           )}
         </div>
       </form>

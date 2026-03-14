@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Separator } from '@/components/ui/separator';
 
 const coursesLinks = [
   { label: 'AI Fundamentals', href: '#what-we-teach' },
@@ -77,8 +78,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Divider */}
-      <hr className="my-12 border-slate-800" />
+      <Separator className="my-12 bg-slate-800" />
 
       {/* Bottom */}
       <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">

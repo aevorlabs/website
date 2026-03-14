@@ -1,41 +1,44 @@
-'use client';
-
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import SectionTag from './SectionTag';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 
 const faqs = [
   {
     q: 'Who are your courses for?',
-    a: 'Our courses are designed for professionals, teams, and individuals at any skill level — from complete beginners curious about AI to engineers wanting to deepen their LLM knowledge. We\u2019ve trained marketing managers, product designers, developers, and C-suite executives.',
+    a: `Our courses are designed for professionals, teams, and individuals at any skill level — but if you want to streamline workflows and let AI handle the heavy lifting, you're exactly who we built this for.`,
   },
   {
     q: 'Do I need coding experience?',
-    a: 'Not at all. Our AI Fundamentals and Vibe Coding courses are designed for non-technical learners. We start from the basics and build up gradually.',
+    a: 'Not at all. Our AI Fundamentals and Vibe Coding courses are designed for non-technical learners. We take the "no-code" promise seriously.',
   },
   {
     q: 'How long are the sessions?',
-    a: 'Sessions typically range from half-day workshops (3–4 hours) to multi-day intensives. We tailor the format based on your team\u2019s schedule and learning goals.',
+    a: `Sessions typically range from half-day workshops (3-4 hours) to multi-day intensives. We tailor the format based on your team's schedule and learning goals.`,
   },
   {
     q: 'Can you build a custom curriculum?',
-    a: 'Absolutely. We work closely with your team to design a curriculum around your industry, tools, and specific objectives.',
+    a: `Absolutely — it's kind of our thing. We work closely with your team to design a curriculum around your industry, tools, and goals.`,
   },
   {
     q: 'What does it cost?',
-    a: 'Pricing depends on the format, group size, and duration. Reach out via the contact form and we\u2019ll provide a tailored quote within one business day.',
+    a: `Your team deserves a solution built around you, not a price list. Reach out via the contact form and we'll craft your custom quote within one business day.`,
   },
   {
     q: 'Do you train outside Singapore?',
-    a: 'Yes — we offer remote training worldwide via Zoom, and can arrange on-site sessions internationally on request.',
+    a: 'Our AI training has no borders! Join us remotely via Zoom from anywhere in the world, or let us bring the experience on-site to your team internationally.',
   },
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState(0);
-
   return (
-    <section id="faq" className="w-full bg-[#F8FAFF] px-6 py-20 sm:px-12 lg:px-[240px] lg:py-[80px]">
+    <section
+      id="faq"
+      className="w-full bg-[#F8FAFF] px-6 py-20 sm:px-12 lg:px-[240px] lg:py-[80px]"
+    >
       {/* Header */}
       <div className="mx-auto flex flex-col items-center gap-3 text-center">
         <SectionTag label="FAQ" />
@@ -45,40 +48,18 @@ export default function FAQ() {
       </div>
 
       {/* Accordion */}
-      <div className="mt-12 flex flex-col">
-        {faqs.map((faq, i) => {
-          const isOpen = openIndex === i;
-          const isLast = i === faqs.length - 1;
-          return (
-            <div key={i} className={`${!isLast ? 'border-b border-slate-200' : ''}`}>
-              <button
-                onClick={() => setOpenIndex(isOpen ? -1 : i)}
-                className="flex w-full items-center justify-between py-5 text-left"
-              >
-                <span className="text-base font-semibold text-slate-900">{faq.q}</span>
-                <span
-                  className={`shrink-0 text-xl font-light ${isOpen ? 'text-indigo-500' : 'text-slate-400'}`}
-                >
-                  {isOpen ? '−' : '+'}
-                </span>
-              </button>
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="overflow-hidden"
-                  >
-                    <p className="pb-5 text-[15px] leading-[1.65] text-slate-500">{faq.a}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          );
-        })}
-      </div>
+      <Accordion type="single" collapsible defaultValue="item-0" className="mt-12">
+        {faqs.map((faq, i) => (
+          <AccordionItem key={i} value={`item-${i}`} className="bg-white border border-slate-200">
+            <AccordionTrigger className="text-slate-900 [&>svg]:text-slate-400">
+              {faq.q}
+            </AccordionTrigger>
+            <AccordionContent className="text-[15px] leading-[1.65] text-slate-500">
+              {faq.a}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </section>
   );
 }
