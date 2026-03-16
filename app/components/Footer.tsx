@@ -1,11 +1,4 @@
 import Link from 'next/link';
-import { Separator } from '@/components/ui/separator';
-
-const coursesLinks = [
-  { label: 'AI Fundamentals', href: '#what-we-teach' },
-  { label: 'LLMs & Prompt Engineering', href: '#what-we-teach' },
-  { label: 'Vibe Coding', href: '#what-we-teach' },
-];
 
 const companyLinks = [
   { label: 'About', href: '#about' },
@@ -28,16 +21,19 @@ export default function Footer() {
           <p className="text-sm leading-relaxed text-slate-500">
             AI, LLM &amp; Vibe Coding training for teams and individuals. Based in Singapore.
           </p>
-          <a href="mailto:hello@aevoredge.com" className="text-sm font-medium text-indigo-500">
+          {/* <a href="mailto:hello@aevoredge.com" className="text-sm font-medium text-indigo-500">
             hello@aevoredge.com
-          </a>
+          </a> */}
           <span className="text-sm text-slate-500">📍 Singapore</span>
+          <span className="text-sm text-slate-500">
+            12 Kallang Ave, #03-07 Aperia Mall, Singapore 339511
+          </span>
         </div>
 
         {/* Nav Columns */}
         <div className="flex flex-wrap gap-16 sm:gap-20">
           {/* Courses */}
-          <div className="flex flex-col gap-[14px]">
+          {/* <div className="flex flex-col gap-[14px]">
             <span className="text-sm font-bold text-white">Courses</span>
             {coursesLinks.map((l) => (
               <Link
@@ -48,7 +44,7 @@ export default function Footer() {
                 {l.label}
               </Link>
             ))}
-          </div>
+          </div> */}
 
           {/* Company */}
           <div className="flex flex-col gap-[14px]">
@@ -65,7 +61,7 @@ export default function Footer() {
           </div>
 
           {/* Connect */}
-          <div className="flex flex-col gap-[14px]">
+          {/* <div className="flex flex-col gap-[14px]">
             <span className="text-sm font-bold text-white">Connect</span>
             <a
               href="#"
@@ -74,14 +70,14 @@ export default function Footer() {
               <span className="inline-block h-5 w-5 rounded bg-blue-700" />
               LinkedIn
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
 
-      <Separator className="my-12 bg-slate-800" />
+      {/* <Separator className="my-12 bg-slate-800" /> */}
 
       {/* Bottom */}
-      <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+      {/* <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
         <span className="text-[13px] text-slate-600">© 2026 Aevor Edge. All rights reserved.</span>
         <div className="flex gap-6">
           <a href="#" className="text-[13px] text-slate-600 transition-colors hover:text-slate-400">
@@ -91,7 +87,7 @@ export default function Footer() {
             Terms of Use
           </a>
         </div>
-      </div>
+      </div> */}
     </footer>
   );
 }

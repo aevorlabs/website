@@ -68,9 +68,6 @@ export default function WhatWeTeach() {
               </div>
               <h3 className="text-[22px] font-bold text-slate-900">{card.title}</h3>
               <p className="text-[15px] leading-[1.65] text-slate-500">{card.desc}</p>
-              <a href="#" className="text-sm font-semibold text-indigo-500 hover:text-indigo-600">
-                {card.link}
-              </a>
             </CardContent>
           </Card>
         ))}
@@ -98,9 +95,9 @@ export default function WhatWeTeach() {
                   </div>
                   <h3 className="text-xl font-bold text-slate-900">{cards[current].title}</h3>
                   <p className="text-[15px] leading-[1.65] text-slate-500">{cards[current].desc}</p>
-                  <a href="#" className="text-sm font-semibold text-indigo-500">
+                  {/* <a href="#" className="text-sm font-semibold text-indigo-500">
                     {cards[current].link}
-                  </a>
+                  </a> */}
                 </CardContent>
               </Card>
             </motion.div>

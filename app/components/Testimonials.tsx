@@ -12,7 +12,7 @@ const testimonials = [
     quote:
       '"A much needed breath of fresh air in the AI courses space! Have been looking for a practical course such as this for my department. We built something for our processes and it actually improved workflow efficiency. 10/10 would recommend!"',
     name: 'Sarah Lim',
-    role: 'Head of Product · TechCorp SG',
+    role: 'Head of Product',
     attended: 'Vibe Coding Workshop',
     courseType: 'On-Site Coaching',
   },
@@ -20,7 +20,7 @@ const testimonials = [
     quote:
       '"I have zero coding experience. After the course, its still at zero which is perfect because I did not want to learn coding. If you are here to learn coding, you are at the wrong place because this course doesn\'t teach coding. It teaches people who wants to use a no-code solution to build apps. Never have I thought I would be able to "code" an app in 2026, but here we are. Thank you Aevor Edge!"',
     name: 'Marcus Tan',
-    role: 'Marketing Manager · Freelance',
+    role: 'Marketing Manager, Freelance',
     attended: 'Vibe Coding Workshop',
     courseType: ' 1-on-1 Coaching',
   },
@@ -28,7 +28,7 @@ const testimonials = [
     quote:
       '"We ran a company-wide training, starting with just 1 department. Content is incredibly well-thought out, highly relevant, and more importantly,  the apps built helps eased our pain points. I particularly enjoy how the trainer uses familiar analogies to make complex topics easy to comprehend."',
     name: 'Priya Nair',
-    role: 'L&D Director · Fintech Co.',
+    role: 'Learning and Development Director',
     attended: 'Vibe Coding Workshop',
     courseType: 'Corporate Training',
   },
@@ -67,12 +67,9 @@ export default function Testimonials() {
               <div>
                 <p className="text-sm font-bold text-slate-900">{t.name}</p>
                 <p className="text-[13px] text-slate-500">{t.role}</p>
-                <div className="mt-4 text-right">
-                  <p className="text-sm font-bold text-slate-900">Attended</p>
-                  <p className="text-[14px] text-slate-500">
-                    {t.attended}, {t.courseType}
-                  </p>
-                </div>
+                <p className="mt-2 text-[13px] text-slate-900">
+                  <b>Attended:</b> {t.attended}, {t.courseType}
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -92,7 +89,7 @@ export default function Testimonials() {
             >
               <Card className="border-slate-200 bg-white">
                 <CardContent className="flex flex-col gap-5 p-8">
-                  <span className="text-base text-indigo-500">{stars}</span>
+                  <span className="text-center text-[24px] text-yellow-500">{stars}</span>
                   <p className="text-[15px] leading-[1.7] text-slate-700">
                     {testimonials[current].quote}
                   </p>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import SectionTag from './SectionTag';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 export default function AboutUs() {
@@ -16,15 +17,16 @@ export default function AboutUs() {
         </h2>
         <div className="flex flex-col gap-4 text-base leading-[1.75] text-slate-600">
           <p>
-            Aevor Edge is a Singapore-based AI training company on a mission to make cutting-edge
-            technology skills accessible to everyone. We believe you don&apos;t need a computer
-            science degree to harness the power of AI — you just need the right guide.
+            AI is reshaping the world— and Aevor Edge exists to make sure you&apos;re shaping it
+            too. We&apos;re a Singapore-based AI training and consulting company on a mission to
+            make cutting-edge technology skills accessible to everyone, regardless of background or
+            experience.
           </p>
           <p>
             Founded by practitioners with real-world experience building AI systems, we design every
-            course to be hands-on, immediately applicable, and genuinely engaging. From Fortune 500
-            teams to solo entrepreneurs, we&apos;ve helped hundreds of learners across the globe
-            level up.
+            course to be hands-on, impactful, and impossible to forget. From Fortune 500 giants to
+            ambitious solo founders, we&apos;ve helped hundreds of learners across the globe level
+            up and leave their competition behind.
           </p>
         </div>
         <Button
@@ -37,10 +39,9 @@ export default function AboutUs() {
         </Button>
       </div>
 
-      {/* Right — Illustration placeholder */}
-      <div className="flex h-[300px] w-full shrink-0 flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl bg-[radial-gradient(ellipse_at_center,_#4338CA_0%,_#1E1B4B_60%,_#0F172A_100%)] sm:h-[380px] lg:w-[460px]">
-        <span className="text-[64px]">🎓</span>
-        <span className="text-sm text-indigo-500">Team photo / illustration</span>
+      {/* Right */}
+      <div className="relative h-[300px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[380px] lg:w-[460px]">
+        <Image src="/about.jpg" alt="About us image" fill className="object-cover" />
       </div>
     </section>
   );
