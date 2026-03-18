@@ -9,7 +9,8 @@ const companyLinks = [
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-slate-900 px-6 py-16 sm:px-12 lg:px-[120px]">
+    <footer className="w-full bg-slate-900 py-16">
+      <div className="mx-auto w-full max-w-[1280px] px-6 sm:px-12 lg:px-20">
       {/* Main */}
       <div className="flex flex-col gap-12 lg:flex-row lg:justify-between lg:gap-20">
         {/* Brand */}
@@ -88,6 +89,7 @@ export default function Footer() {
           </a>
         </div>
       </div> */}
+      </div>
     </footer>
   );
 }

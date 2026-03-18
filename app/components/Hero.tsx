@@ -3,8 +3,8 @@ import { Button } from '@/components/ui/button';
 
 export default function Hero() {
   return (
-    <section className="flex w-full items-center bg-slate-900 px-6 py-20 sm:px-12 sm:py-24 lg:h-170 lg:px-20 lg:py-0">
-      <div className="flex flex-1 flex-col items-center justify-center gap-6 sm:gap-8">
+    <section className="flex w-full items-center bg-slate-900 py-20 sm:py-24 lg:h-170 lg:py-0">
+      <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center justify-center gap-6 px-6 sm:gap-8 sm:px-12 lg:px-20">
         {/* Headline */}
         <h1 className="max-w-155 text-center text-[36px] leading-[1.15] font-extrabold text-white sm:text-[48px] lg:text-[60px] lg:leading-[1.1]">
           Learn AI, LLMs, and Vibe Coding.

@@ -14,11 +14,6 @@ const steps = [
   },
   {
     num: '03',
-    title: 'On-Site',
-    desc: 'We come to you — trainer-led workshops at your office or venue, anywhere in Singapore.',
-  },
-  {
-    num: '04',
     title: 'Remote (Zoom)',
     desc: 'Live interactive sessions online — ideal for global teams and international participants joining from anywhere.',
   },
@@ -28,10 +23,11 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="w-full bg-slate-900 px-6 py-20 sm:px-12 lg:px-[120px] lg:py-[80px]"
+      className="w-full bg-slate-900 py-20 lg:py-[80px]"
     >
+      <div className="mx-auto w-full max-w-[1280px] px-6 sm:px-12 lg:px-20">
       {/* Header */}
-      <div className="mx-auto flex flex-col items-center gap-3 text-center">
+      <div className="flex flex-col items-center gap-3 text-center">
         <SectionTag label="DELIVERY" variant="dark" />
         <h2 className="text-3xl font-extrabold text-white sm:text-[40px]">
           How We Deliver Training
@@ -43,7 +39,7 @@ export default function HowItWorks() {
       </div>
 
       {/* Responsive Grid */}
-      <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-3">
         {steps.map((step) => (
           <Card key={step.num} className="border-slate-800 bg-transparent">
             <CardContent className="flex flex-col gap-4 p-8">
@@ -55,6 +51,7 @@ export default function HowItWorks() {
             </CardContent>
           </Card>
         ))}
+      </div>
       </div>
     </section>
   );

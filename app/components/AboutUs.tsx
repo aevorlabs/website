@@ -7,8 +7,9 @@ export default function AboutUs() {
   return (
     <section
       id="about"
-      className="flex w-full flex-col items-center gap-12 bg-white px-6 py-20 sm:px-12 lg:flex-row lg:gap-[80px] lg:px-[120px] lg:py-[80px]"
+      className="w-full bg-white py-20 lg:py-[80px]"
     >
+      <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-12 px-6 sm:px-12 lg:flex-row lg:gap-[80px] lg:px-20">
       {/* Left */}
       <div className="flex flex-1 flex-col gap-6">
         <SectionTag label="ABOUT" />
@@ -42,6 +43,7 @@ export default function AboutUs() {
       {/* Right */}
       <div className="relative h-[300px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[380px] lg:w-[460px]">
         <Image src="/about.jpg" alt="About us image" fill className="object-cover" />
+      </div>
       </div>
     </section>
   );

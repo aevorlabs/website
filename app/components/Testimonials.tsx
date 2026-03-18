@@ -40,7 +40,6 @@ export default function Testimonials() {
   const prev = useCallback(() => {
     setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1));
   }, []);
-
   const next = useCallback(() => {
     setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
   }, []);
@@ -48,9 +47,10 @@ export default function Testimonials() {
   const stars = '★ ★ ★ ★ ★';
 
   return (
-    <section className="w-full bg-[#F8FAFF] px-6 py-20 sm:px-12 lg:px-[120px] lg:py-[80px]">
+    <section className="w-full bg-[#F8FAFF] py-20 lg:py-[80px]">
+      <div className="mx-auto w-full max-w-[1280px] px-6 sm:px-12 lg:px-20">
       {/* Header */}
-      <div className="mx-auto flex flex-col items-center gap-3 text-center">
+      <div className="flex flex-col items-center gap-3 text-center">
         <SectionTag label="TESTIMONIALS" />
         <h2 className="text-3xl font-extrabold text-slate-900 sm:text-[40px]">
           What Our Learners Say
@@ -134,6 +134,7 @@ export default function Testimonials() {
             <ChevronRight size={20} />
           </Button>
         </div>
+      </div>
       </div>
     </section>
   );
